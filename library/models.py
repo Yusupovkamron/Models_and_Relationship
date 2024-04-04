@@ -1,5 +1,8 @@
 from django.db import models
 from student.models import Student
+
+
+
 class Author(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
@@ -8,6 +11,8 @@ class Author(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
+
+
 
 class Commit(models.Model):
     text = models.TextField()
@@ -25,6 +30,8 @@ class book(models.Model):
     cound = models.IntegerField(default=1)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     create_data = models.DateTimeField(auto_created=True)
+    # autocomplete_fields = ("author", )
+
 
 
     def __str__(self):
