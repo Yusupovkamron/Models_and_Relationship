@@ -10,7 +10,7 @@ class Author(models.Model):
 
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name}"
+        return f"{self.id} {self.first_name} {self.last_name}"
 
 
 
@@ -22,7 +22,7 @@ class Commit(models.Model):
         return self.text
 
 
-class book(models.Model):
+class Book(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(null=True)
     price = models.FloatField
@@ -41,7 +41,7 @@ class book(models.Model):
 
 class Bookingbook(models.Model):
     student = models.ManyToManyField(Student)
-    Book = models.ManyToManyField(book)
+    Book = models.ManyToManyField(Book)
     take_data = models.DateTimeField(auto_now_add=True)
     returned_data = models.BooleanField(default=False)
 
